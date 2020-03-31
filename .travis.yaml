@@ -1,0 +1,33 @@
+language: bash
+sudo: required
+services: 
+  - docker
+env:
+  global: 
+    - SHA=$(git rev-parse HEAD) 
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+    - BUILD_NUMBER=$TRAVIS_BUILD_NUMBER
+before_install:
+  - gem install rake
+  - curl https://sdk.cloud.google.com | bash > /dev/null;
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
+  - echo $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > ${HOME}/gcloud-service-key.json
+  - gcloud auth activate-service-account --key-file service-account.json
+  - gcloud config set project api-mgw-cicd-demo
+  - gcloud config set compute/zone southamerica-east1-a
+  - gcloud container clusters get-credentials cluster-1	 
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - kubectl get pods
+  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  # - docker build -t fabiowso2/bookstore-microservice:test -f ./microservices/docker/Dockerfile ./microservices
+
+script:
+  - echo "skipping tests"
+  - echo $BUILD_NUMBER
+
+deploy:
+  provider: script
+  script: bash ./scripts/deploy-gcp.sh
+  on:
+    branch: master

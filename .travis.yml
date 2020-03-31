@@ -17,10 +17,8 @@ before_install:
   - gcloud config set project api-mgw-cicd-demo
   - gcloud config set compute/zone southamerica-east1-a
   - gcloud container clusters get-credentials cluster-1	 
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - kubectl get pods
-  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  # - docker build -t fabiowso2/bookstore-microservice:test -f ./microservices/docker/Dockerfile ./microservices
+ 
 
 script:
   - echo "skipping tests"

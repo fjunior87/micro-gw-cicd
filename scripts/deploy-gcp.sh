@@ -13,8 +13,10 @@ MGW_BIN="$PWD/$GW_BIN/bin"
 
 echo "${MGW_BIN}"
 
+cat deployment.toml
+
 #Update deployment.toml
-cd ..
+#cd ..
 
 sed -i "s/TOOLKIT_BASE/${TOOLKIT_BASE}/g" deployment.toml
 

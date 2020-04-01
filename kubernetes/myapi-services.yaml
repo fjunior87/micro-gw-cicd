@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: myapi-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector: 
     component: myapi-microgateway
   ports:

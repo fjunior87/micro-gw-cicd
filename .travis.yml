@@ -22,6 +22,7 @@ before_install:
   - gcloud container clusters get-credentials cluster-1	 
   - echo ${HOME}
   - kubectl get pods
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
  
 
 script:

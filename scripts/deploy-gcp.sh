@@ -22,7 +22,9 @@ sed -i "s#TOOLKIT_BASE#$MGW_BASE_PATH#g" deployment.toml
 ls -ltr myapi
 #cat deployment.toml
 $MGW_BIN/micro-gw 
-$MGW_BIN/micro-gw build myapi --docker-image myapi-mgw:v1 --docker-base-image wso2/wso2micro-gw:3.1.0
+$MGW_BIN/micro-gw build myapi --docker-image fjunior87/myapi-mgw:v1 --docker-base-image wso2/wso2micro-gw:3.1.0
 
 docker image ls
+
+docker push fjunior87/myapi-mgw:v1
 

@@ -15,6 +15,9 @@ echo "${MGW_BIN}"
 mkdir -p myapi/target/gen
 chmod -R 777 myapi/ 
 ls -ltr
+
+mv myapi/gen/api_definitions/*.yaml  myapi/api_definitions/
+
 $MGW_BIN/micro-gw build myapi --docker-image "fjunior87/myapi-mgw:latest" --docker-base-image wso2/wso2micro-gw:3.1.0
 
 docker image ls

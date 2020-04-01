@@ -22,7 +22,7 @@ sed -i "s/TOOLKIT_BASE/${TOOLKIT_BASE}/g" deployment.toml
 
 cat deployment.toml
 
-$MGW_BIN/micro-gw myapi --deployment-config deployment.toml
+$MGW_BIN/micro-gw build myapi --deployment-config deployment.toml
 
 docker image ls
 

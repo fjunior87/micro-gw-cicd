@@ -27,6 +27,7 @@ $MGW_BIN/micro-gw build myapi #--deployment-config deployment.toml
 ls -ltr myapi/target
 
 $MGW_BIN/micro-gw init test
+cp myapi/api_definitions/*.yaml test/api_definitions/
 $MGW_BIN/micro-gw build test
 #docker image ls
 

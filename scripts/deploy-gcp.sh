@@ -18,7 +18,7 @@ cat deployment.toml
 #Update deployment.toml
 #cd ..
 
-sed -i "s/TOOLKIT_BASE/${TOOLKIT_BASE}/g" deployment.toml
+sed -i "s/TOOLKIT_BASE/${MGW_BASE_PATH}/g" deployment.toml
 
 cat deployment.toml
 

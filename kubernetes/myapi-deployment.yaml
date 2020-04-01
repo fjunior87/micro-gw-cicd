@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapi-deployment
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      component: myapi-microgateway
+  template:
+    metadata:
+      labels: 
+        component: myapi-microgateway
+    spec:
+      containers:
+        - name: myapi-microgateway
+          image: fjunior87/myapi-mgw:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9090
+              protocol: "TCP"       
+          env:
+            - name: "b7a_log_level"
+              value: "DEBUG"

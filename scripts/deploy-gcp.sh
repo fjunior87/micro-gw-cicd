@@ -28,3 +28,6 @@ docker image ls
 
 docker push fjunior87/myapi-mgw:v1
 
+# Apply Kubernetes configs
+kubectl apply -f kubernetes/
+

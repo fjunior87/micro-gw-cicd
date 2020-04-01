@@ -24,5 +24,7 @@ ls -ltr myapi
 $MGW_BIN/micro-gw 
 $MGW_BIN/micro-gw build myapi #--deployment-config deployment.toml
 
+ls -ltr myapi/target
+
 docker image ls
 

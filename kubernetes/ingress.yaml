@@ -1,19 +1,23 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
+  #annotations:
+    #kubernetes.io/ingress.class: nginx
     #nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/use-regex: "true"
+    #nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
-  rules:
-    - http:
-        paths:
-          - path: /petstore/(.+)
-            backend:
-              serviceName: myapi-service
-              servicePort: 9090
+  backend:
+    serviceName: myapi-service
+    servicePort: 9090
+#spec:
+#  rules:
+#    - http:
+#        paths:
+#          - path: /
+#            backend:
+#              serviceName: myapi-service
+#              servicePort: 9090
           # - path: /v3alpha/(.+)
           #   backend:
           #     serviceName: etcd-service

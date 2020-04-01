@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: myapi-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector: 
     component: myapi-microgateway
   ports:
-    - port: 9090
+    - protocol: TCP
+      port: 9090
       targetPort: 9090

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: myapi-microgateway
-          image: fjunior87/myapi-mgw:v1
+          image: fjunior87/myapi-mgw:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 9090

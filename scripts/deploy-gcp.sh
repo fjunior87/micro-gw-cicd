@@ -13,6 +13,14 @@ MGW_BIN="$PWD/$GW_BIN/bin"
 
 echo "${MGW_BIN}"
 
-$MGW_BIN/micro-gw
+#Update deployment.toml
+cd ..
 
+sed -i "s/TOOLKIT_BASE/${TOOLKIT_BASE}/g" deployment.toml
+
+cat deployment.toml
+
+$MGW_BIN/micro-gw myapi --deployment-config deployment.toml
+
+docker image ls
 

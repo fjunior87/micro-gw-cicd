@@ -10,11 +10,11 @@
     #baseImage = 'wso2/wso2micro-gw:3.1.0'
     #enableDebug = ''
     #debugPort = ''
-    push = false
+    #push = ''
   [docker.dockerCopyFiles]
     enable = true
     [[docker.dockerCopyFiles.files]]
-        source = 'TOOLKIT_BASE/resources/conf/micro-gw.conf'
+        source = '/Users/francisco/soft/wso2am-micro-gw-toolkit-3.0.1/resources/conf/micro-gw.conf'
         target = '/home/ballerina/conf/micro-gw.conf'
         isBallerinaConf = true
   [kubernetes.kubernetesService]
@@ -25,7 +25,7 @@
     #port = ''
   [kubernetes.kubernetesConfigMap]
     enable = true
-    ballerinaConf = 'TOOLKIT_BASE/resources/conf/micro-gw.conf'
+    ballerinaConf = '/Users/francisco/soft/wso2am-micro-gw-toolkit-3.0.1/resources/conf/micro-gw.conf'
     #[[kubernetes.kubernetesConfigMap.configMaps]]
     #    name = ''
     #    mountPath = ''

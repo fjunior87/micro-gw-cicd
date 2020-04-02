@@ -3,7 +3,8 @@
 GW_BIN="wso2am-micro-gw-toolkit-linux-3.1.0"
 #GW_BIN="wso2am-micro-gw-toolkit-3.0.1"
 ls -ltr $HOME
-if [ ! -d "$HOME/$GW_BIN/bin" ]; then
+if [[  ! -f "$HOME/$GW_BIN/bin/micro-gw" ]]
+then
     echo "Downloading micro-gw"
     wget -q "https://github.com/wso2/product-microgateway/releases/download/v3.1.0/${GW_BIN}.zip"
     echo "Unziping MGW Toolkit"

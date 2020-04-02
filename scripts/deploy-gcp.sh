@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 GW_BIN="wso2am-micro-gw-toolkit-linux-3.1.0"
 #GW_BIN="wso2am-micro-gw-toolkit-3.0.1"

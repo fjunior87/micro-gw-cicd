@@ -12,18 +12,10 @@ MGW_BASE_PATH="$PWD/$GW_BIN"
 MGW_BIN="$PWD/$GW_BIN/bin"
 
 echo "${MGW_BIN}"
-#mkdir -p myapi/target/gen
-#chmod -R 777 myapi/ 
-#ls -ltr myapi
 
-#mv myapi/gen/api_definitions/*.yaml myapi/api_definitions/
+$MGW_BIN/micro-gw build myapi --docker-image "$DOCKER_USERNAME/myapi-mgw:latest" --docker-base-image wso2/wso2micro-gw:3.1.0
 
-$MGW_BIN/micro-gw build myapi --docker-image "fjunior87/myapi-mgw:latest" --docker-base-image wso2/wso2micro-gw:3.1.0
-
-docker image ls
-
-#docker push fjunior87/myapi-mgw:$SHA1
-docker push fjunior87/myapi-mgw:latest
+docker push $DOCKER_USERNAME/myapi-mgw:latest
 
 # Apply Kubernetes configs
 kubectl delete -f kubernetes/

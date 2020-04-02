@@ -26,5 +26,5 @@ docker push $DOCKER_USERNAME/myapi-mgw:$SHA
 # Apply Kubernetes configs
 #kubectl delete -f kubernetes/
 kubectl apply -f kubernetes/
-kubectl set image deployment/myapi-deployment myapi-microgateway="$DOCKER_USERNAME/myapi:$SHA"
+kubectl set image deployment/myapi-deployment myapi-microgateway="$DOCKER_USERNAME/myapi-mgw:$SHA"
 

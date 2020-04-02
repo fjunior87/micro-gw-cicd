@@ -15,7 +15,7 @@ spec:
       containers:
         - name: myapi-microgateway
           image: fjunior87/myapi-mgw:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9090
               protocol: "TCP"       

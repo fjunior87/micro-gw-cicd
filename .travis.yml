@@ -8,7 +8,7 @@ jdk:
 cache:
   directories:
     - $HOME/wso2am-micro-gw-toolkit-linux-3.1.0
-    - $HOME/google-cloud-sdk
+    #- $HOME/google-cloud-sdk
 env:
   global: 
     - SHA=$(git rev-parse HEAD) 
@@ -16,6 +16,7 @@ env:
     - BUILD_NUMBER=$TRAVIS_BUILD_NUMBER
 before_install:
   - curl https://sdk.cloud.google.com | bash > /dev/null;
+  #- if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk"; curl https://sdk.cloud.google.com | bash > /dev/null; fi
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - echo $GCLOUD_SERVICE_KEY_STG | base64 --decode -i > ${HOME}/gcloud-service-key.json

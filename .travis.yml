@@ -20,7 +20,9 @@ before_install:
   - gcloud config set compute/zone southamerica-east1-a
   - gcloud container clusters get-credentials cluster-1	 
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
- 
+cache:
+  directories:
+    - $HOME/wso2am-micro-gw-toolkit-linux-3.1.0
 
 script:
   - echo "skipping tests"

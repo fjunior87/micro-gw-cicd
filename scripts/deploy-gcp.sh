@@ -20,9 +20,11 @@ echo "${MGW_BIN}"
 $MGW_BIN/micro-gw build myapi --docker-image "$DOCKER_USERNAME/myapi-mgw:latest" --docker-base-image wso2/wso2micro-gw:3.1.0
 
 docker push $DOCKER_USERNAME/myapi-mgw:latest
+docker tag "$DOCKER_USERNAME/myapi-mgw:latest" "$DOCKER_USERNAME/myapi-mgw:$SHA1"
+docker push $DOCKER_USERNAME/myapi-mgw:$SHA1
 
 # Apply Kubernetes configs
-kubectl delete -f kubernetes/
+#kubectl delete -f kubernetes/
 kubectl apply -f kubernetes/
-
+kubectl set image deployment/myapi-deployment myapi-deployment="$DOCKER_USERNAME/myapi:$SHA"
 

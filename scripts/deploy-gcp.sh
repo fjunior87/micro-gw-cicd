@@ -23,8 +23,7 @@ docker push $DOCKER_USERNAME/myapi-mgw:latest
 docker tag "$DOCKER_USERNAME/myapi-mgw:latest" "$DOCKER_USERNAME/myapi-mgw:$SHA"
 docker push $DOCKER_USERNAME/myapi-mgw:$SHA
 
-sed -i "s/SDOCKER_USERNAME/${DOCKER_USERNAME}/g" kubernetes/myapi-deployment.yaml
-cat kubernetes/myapi-deployment.yaml
+sed -i "s/DOCKER_USERNAME/${DOCKER_USERNAME}/g" kubernetes/myapi-deployment.yaml
 # Apply Kubernetes configs
 #kubectl delete -f kubernetes/
 kubectl apply -f kubernetes/

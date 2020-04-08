@@ -7,6 +7,11 @@ spec:
   selector: 
     component: myapi-microgateway
   ports:
-    - protocol: TCP
+    - name: mgw-services-port
+      protocol: TCP
       port: 9090
       targetPort: 9090
+    - name: metrics-service
+      port: 9797
+      targetPort: 9797
+      protocol: TCP

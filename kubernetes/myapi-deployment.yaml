@@ -11,10 +11,13 @@ spec:
     metadata:
       labels: 
         component: myapi-microgateway
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '9797'
     spec:
       containers:
         - name: myapi-microgateway
-          image: DOCKER_USERNAME/myapi-mgw:latest
+          image: fjunior87/myapi-mgw:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9090
@@ -22,3 +25,5 @@ spec:
           env:
             - name: "b7a_log_level"
               value: "DEBUG"
+            - name: "b7a_observability_metrics_enabled"
+              value: "true"

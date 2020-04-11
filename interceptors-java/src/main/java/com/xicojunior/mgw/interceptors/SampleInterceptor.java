@@ -1,13 +1,12 @@
 package com.xicojunior.mgw.interceptors;
 import org.json.JSONObject;
 import org.wso2.micro.gateway.interceptor.Caller;
-import org.wso2.micro.gateway.interceptor.Entity;
 import org.wso2.micro.gateway.interceptor.Interceptor;
 import org.wso2.micro.gateway.interceptor.InterceptorException;
 import org.wso2.micro.gateway.interceptor.Request;
 import org.wso2.micro.gateway.interceptor.Response;
  
-public class LoggerInterceptor implements Interceptor {
+public class SampleInterceptor implements Interceptor {
     public static String value="json";
     public boolean interceptRequest(Caller caller, Request request) {
         boolean hasApiKey = request.hasHeader("X-API-KEY");
@@ -28,8 +27,9 @@ public class LoggerInterceptor implements Interceptor {
         // Send a custom json message if the response contains the key "error"
         try {
             JSONObject responseObject = response.getJsonPayload();
-            if(responseObject.has("error")){
-                JSONObject customErrorMessage = new JSONObject().put("error", "Invalid json payload returned");
+            String payloadInText = response.getTextPayload();
+            if(payloadInText.equals("{}")){
+                JSONObject customErrorMessage = new JSONObject().put("error", "No Products Returned");
                 response.setJsonPayload(customErrorMessage);
             }
         } catch (InterceptorException e) {

@@ -3,7 +3,12 @@ kind: Deployment
 metadata:
   name: myapi-deployment
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
   selector: 
     matchLabels: 
       component: myapi-microgateway

@@ -1,4 +1,5 @@
 import ballerina/http;
+import ballerina/io;
  
 public function validateRequest (http:Caller outboundEp, http:Request req) {
     // Backend requires X-API-KEY header. No point in passing the request to the backend 
@@ -15,11 +16,12 @@ public function validateRequest (http:Caller outboundEp, http:Request req) {
  
 public function validateResponse (http:Caller outboundEp, http:Response res) {
     // Client only supports json. Therefore we need to make sure only json responses are returned
-    var payload = res.getJsonPayload();
+    var payload = res.getTextPayload();
     if (payload is json) {
         if(payload.toString() == "{}") {
             res.statusCode = 500;
             json message = {"error": "Product Not Found"};
+            io:println("Product Not Found");
             res.setPayload(message);
         }
     }

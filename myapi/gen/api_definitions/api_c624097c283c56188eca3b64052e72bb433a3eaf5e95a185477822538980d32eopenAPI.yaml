@@ -83,5 +83,3 @@ x-wso2-transports:
 x-wso2-response-cache:
   enabled: false
   cacheTimeoutInSeconds: 300
-x-wso2-request-interceptor: validateRequest
-x-wso2-response-interceptor: validateResponse

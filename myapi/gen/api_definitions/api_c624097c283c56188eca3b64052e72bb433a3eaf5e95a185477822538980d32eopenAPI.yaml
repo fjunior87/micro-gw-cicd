@@ -15,8 +15,29 @@ paths:
           description: successful operation
       security:
       - default: []
-      x-auth-type: Application & Application User
-      x-throttling-tier: Unlimited
+      x-auth-type: null
+      x-throttling-tier: null
+      x-wso2-application-security:
+        security-types:
+        - oauth2
+        optional: false
+  /products/{productId}:
+    get:
+      parameters:
+      - name: productId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+      security:
+      - default: []
+      x-auth-type: null
+      x-throttling-tier: null
       x-wso2-application-security:
         security-types:
         - oauth2
@@ -49,11 +70,11 @@ x-wso2-cors:
   - OPTIONS
 x-wso2-production-endpoints:
   urls:
-  - http://34.95.140.14/
+  - http://34.95.140.14
   type: http
 x-wso2-sandbox-endpoints:
   urls:
-  - http://34.95.140.14/
+  - http://34.95.140.14
   type: http
 x-wso2-basePath: /store/v1.0.0
 x-wso2-transports:

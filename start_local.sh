@@ -6,4 +6,8 @@ export analytics_fileUpload_task_uploadFiles=true
 export analytics_fileUpload_username="admin"
 export analytics_fileUpload_password="admin" 
 export b7a_log_level=DEBUG
+export b7a_observability_metrics_enabled="true"
+export b7a_observability_metrics_prometheus_secure_port="9000"
+export b7a_observability_metrics_prometheus_port="9797"
+export b7a_observability_metrics_prometheus_jmx_port="8080"
 gateway myapi/target/myapi.jar
